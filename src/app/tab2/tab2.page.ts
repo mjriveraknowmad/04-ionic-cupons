@@ -6,7 +6,7 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent]
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent]
 })
 export class Tab2Page {
 
