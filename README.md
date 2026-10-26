@@ -28,6 +28,9 @@ Por ejemplo, para añadir el plugin de preferences, para guardar datos en el sto
 O para generar los iconos:
 `npm install @capacitor/assets --save-dev`
 
+O para dar y quitar brillo a la pantalla del móvil:
+`npm install @capacitor-community/screen-brightness`
+
 
 ## Generar páginas
 `ionic g page pages/mypage`
