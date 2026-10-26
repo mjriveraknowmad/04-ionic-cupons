@@ -58,5 +58,6 @@ export class Tab1Page {
 
   changeActiveCoupon(coupon: Coupon) {
     coupon.active = !coupon.active;
+    this.couponSvc.saveCoupons(this.coupons());
   }
 }
