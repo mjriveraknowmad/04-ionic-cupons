@@ -16,7 +16,7 @@ import {
   IonSegmentContent,
   IonSegmentView,
   IonTitle,
-  IonToolbar
+  IonToolbar,
 } from '@ionic/angular';
 import { Coupon } from '../../models/coupon.model';
 import { FilterCouponCategoryPipe } from '../../pipes/filter-coupon-category-pipe';
@@ -44,8 +44,8 @@ import { CouponService } from '../../services/coupon';
     IonCardHeader,
     IonCardTitle,
     IonCardSubtitle,
-    NgTemplateOutlet
-],
+    NgTemplateOutlet,
+  ],
 })
 export class Tab1Page {
   couponSvc = inject(CouponService);
@@ -54,5 +54,9 @@ export class Tab1Page {
   async ionViewWillEnter() {
     this.coupons.set(await this.couponSvc.getCoupons());
     console.log(this.coupons());
+  }
+
+  changeActiveCoupon(coupon: Coupon) {
+    coupon.active = !coupon.active;
   }
 }

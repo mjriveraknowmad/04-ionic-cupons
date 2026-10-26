@@ -32,7 +32,7 @@
     <ion-row>
       @for(coupon of (coupons() | filterCouponCategory:category); track coupon.idProduct){
       <ion-col size="6">
-        <ion-card class="rounded">
+        <ion-card class="rounded" (click)="changeActiveCoupon(coupon)" [color]="coupon.active?'secondary':'light'" >
           <ion-img [src]="coupon.img"></ion-img>
           <ion-card-header class="ion-text-center">
             <ion-card-subtitle>{{ coupon.name }}</ion-card-subtitle>
