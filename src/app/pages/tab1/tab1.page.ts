@@ -26,6 +26,7 @@ import { CouponService } from '../../services/coupon';
 import { addIcons } from 'ionicons';
 import { cameraOutline } from 'ionicons/icons';
 import { CapacitorBarcodeScanner, CapacitorBarcodeScannerTypeHint } from '@capacitor/barcode-scanner'
+import { Toast } from '../../services/toast';
 
 @Component({
   selector: 'app-tab1',
@@ -55,6 +56,7 @@ import { CapacitorBarcodeScanner, CapacitorBarcodeScannerTypeHint } from '@capac
   ],
 })
 export class Tab1Page {
+  toastSvc = inject(Toast);
   couponSvc = inject(CouponService);
   coupons = signal<Coupon[]>([]);
 
@@ -87,14 +89,14 @@ export class Tab1Page {
           const coupon = new Coupon(couponData);
           const notIsValidOrBeforeAdded = !coupon.isValid() || this.coupons().some(c => c.idProduct === coupon.idProduct);
           if(notIsValidOrBeforeAdded){
-            console.warn('El cupón no es válido o ya ha sido agregado anteriormente');
+            this.toastSvc.showToast('El cupón no es válido o ya ha sido agregado anteriormente', 'top', 2000);
             return;
           }
           this.coupons.update(coupons => [...coupons, coupon]);
           this.couponSvc.saveCoupons(this.coupons());
-          console.log('Cupón agregado correctamente');
+          this.toastSvc.showToast('Cupón agregado correctamente', 'top', 2000);
         } catch (error) {
-          console.error('Error parsing QR code:', error);
+          this.toastSvc.showToast('Error al leer el código QR', 'top', 2000);
         }
       }
     }).catch(error => {

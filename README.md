@@ -40,6 +40,8 @@ O para escanear un QR:
 
 # Generar servicio
 `ionic g s services/coupon`
+`ionic g s services/toast`
+
 
 # Generar pipe
 `ionic g pipe pipes/filterCouponCategory`
