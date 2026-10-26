@@ -17,12 +17,52 @@
     </ion-segment-button>
   </ion-segment>
   <ion-segment-view>
-    <ion-segment-content id="first">Contenido de Dulces</ion-segment-content>
-    <ion-segment-content id="second">
-      <pre>
-        {{ coupons | filterCouponCategory:'drinks' | json }}
-      </pre>
+    <ion-segment-content id="first">
+      <ion-grid>
+        <ion-row>
+          @for(coupon of (coupons | filterCouponCategory:'candies'); track coupon.idProduct){
+            <ion-col size="6">
+              <ion-card class="rounded">
+                <ion-img [src]="coupon.img"></ion-img>
+                <ion-card-header class="ion-text-center">
+                  <ion-card-subtitle>{{ coupon.name }}</ion-card-subtitle>
+                  <ion-card-title>{{ coupon.discount }}%</ion-card-title>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+          }
+        </ion-row>
+      </ion-grid>
     </ion-segment-content>
-    <ion-segment-content id="third">Contenido de Carnes</ion-segment-content>
+    <ion-segment-content id="second">
+       <ion-row>
+          @for(coupon of (coupons | filterCouponCategory:'drinks'); track coupon.idProduct){
+            <ion-col size="6">
+              <ion-card class="rounded">
+                <ion-img [src]="coupon.img"></ion-img>
+                <ion-card-header class="ion-text-center">
+                  <ion-card-subtitle>{{ coupon.name }}</ion-card-subtitle>
+                  <ion-card-title>{{ coupon.discount }}%</ion-card-title>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+          }
+        </ion-row>
+    </ion-segment-content>
+    <ion-segment-content id="third">
+       <ion-row>
+          @for(coupon of (coupons | filterCouponCategory:'meats'); track coupon.idProduct){
+            <ion-col size="6">
+              <ion-card class="rounded">
+                <ion-img [src]="coupon.img"></ion-img>
+                <ion-card-header class="ion-text-center">
+                  <ion-card-subtitle>{{ coupon.name }}</ion-card-subtitle>
+                  <ion-card-title>{{ coupon.discount }}%</ion-card-title>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+          }
+        </ion-row>
+    </ion-segment-content>
   </ion-segment-view>
 </ion-content>

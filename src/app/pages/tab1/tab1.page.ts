@@ -1,8 +1,16 @@
 import { Component, inject } from '@angular/core';
 import {
+  IonCard,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonCol,
   IonContent,
+  IonGrid,
   IonHeader,
+  IonImg,
   IonLabel,
+  IonRow,
   IonSegment,
   IonSegmentButton,
   IonSegmentContent,
@@ -11,9 +19,8 @@ import {
   IonToolbar,
 } from '@ionic/angular';
 import { Coupon } from '../../models/coupon.model';
-import { CouponService } from '../../services/coupon';
 import { FilterCouponCategoryPipe } from '../../pipes/filter-coupon-category-pipe';
-import { JsonPipe } from '@angular/common';
+import { CouponService } from '../../services/coupon';
 
 @Component({
   selector: 'app-tab1',
@@ -30,7 +37,14 @@ import { JsonPipe } from '@angular/common';
     IonSegmentView,
     IonSegmentContent,
     FilterCouponCategoryPipe,
-    JsonPipe,
+    IonGrid,
+    IonRow,
+    IonCol,
+    IonImg,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardSubtitle,
   ],
 })
 export class Tab1Page {
