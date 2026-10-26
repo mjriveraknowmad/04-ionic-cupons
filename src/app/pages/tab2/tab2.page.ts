@@ -3,6 +3,7 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, I
 import { QRCodeComponent } from 'angularx-qrcode';
 import { CouponService } from '../../services/coupon';
 import { ScreenBrightness, GetBrightnessReturnValue } from '@capacitor-community/screen-brightness';
+import { App } from '@capacitor/app';
 
 @Component({
   selector: 'app-tab2',
@@ -38,12 +39,29 @@ export class Tab2Page {
       this.curretBrightness = await ScreenBrightness.getBrightness();
       await ScreenBrightness.setBrightness({ brightness: 1 });
     }
+
+    // Workaround for iOS to set brightness to max
+    // if(this.platform.is('ios')){
+    //   App.addListener('appStateChange', async (state) => {
+    //     if (state.isActive) {
+    //       await ScreenBrightness.setBrightness({ brightness: 1 });
+    //     }else{
+    //       await ScreenBrightness.setBrightness({ brightness: this.curretBrightness.brightness });
+    //     }
+    //   });
+    // }
+
   }
 
   async restoreBrightness() {
     if (this.platform.is('capacitor') && this.curretBrightness) {
       await ScreenBrightness.setBrightness({ brightness: this.curretBrightness.brightness });
     }
+
+    // Workaround for iOS to restore brightness
+    // if(this.platform.is('ios')){
+    //   App.removeAllListeners();
+    // }
   }
 
 }
