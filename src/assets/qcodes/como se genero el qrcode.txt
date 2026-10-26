@@ -1,0 +1,6 @@
+Para generar el qr:
+
+1.- https://www.the-qrcode-generator.com/
+2.- pulsar en "plain text" y añadimos el texto:
+  {"idProduct":13,"img":"assets/img/oreo.jpg","name":"Oreo","discount":15, "category": "candies"}
+3.- Le damos a guardar

@@ -31,6 +31,9 @@ O para generar los iconos:
 O para dar y quitar brillo a la pantalla del móvil:
 `npm install @capacitor-community/screen-brightness`
 
+O para escanear un QR:
+`npm install @capacitor/barcode-scanner`   // https://www.the-qrcode-generator.com/ para generar códigos QR de prueba
+
 
 ## Generar páginas
 `ionic g page pages/mypage`
@@ -56,6 +59,12 @@ Más info sobre el script y las dimensiones necesarias de las imágenes: [https:
 # Añadir librería de QR
 https://www.npmjs.com/package/angularx-qrcode 
 `npm i angularx-qrcode`
+
+## Generar un QR externo que tenga datos, para pillarlo con la webcam después
+Ir a https://www.the-qrcode-generator.com/ , pulsar en "plain text", añadimos el texto:
+  `{"idProduct":13,"img":"assets/img/oreo.jpg","name":"Oreo","discount":15, "category": "candies"}`
+ y le damos a guardar
+
 
 ## Más documentación
 https://ionic-docs-lq0if04rc-ionic1.vercel.app/docs/v7/intro/cli
