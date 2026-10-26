@@ -1,4 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
+import { Component, inject, signal } from '@angular/core';
 import {
   IonCard,
   IonCardHeader,
@@ -6,7 +7,6 @@ import {
   IonCardTitle,
   IonCol,
   IonContent,
-  IonGrid,
   IonHeader,
   IonImg,
   IonLabel,
@@ -16,7 +16,7 @@ import {
   IonSegmentContent,
   IonSegmentView,
   IonTitle,
-  IonToolbar,
+  IonToolbar
 } from '@ionic/angular';
 import { Coupon } from '../../models/coupon.model';
 import { FilterCouponCategoryPipe } from '../../pipes/filter-coupon-category-pipe';
@@ -37,7 +37,6 @@ import { CouponService } from '../../services/coupon';
     IonSegmentView,
     IonSegmentContent,
     FilterCouponCategoryPipe,
-    IonGrid,
     IonRow,
     IonCol,
     IonImg,
@@ -45,14 +44,15 @@ import { CouponService } from '../../services/coupon';
     IonCardHeader,
     IonCardTitle,
     IonCardSubtitle,
-  ],
+    NgTemplateOutlet
+],
 })
 export class Tab1Page {
   couponSvc = inject(CouponService);
-  coupons: Coupon[] = [];
+  coupons = signal<Coupon[]>([]);
 
   async ionViewWillEnter() {
-    this.coupons = await this.couponSvc.getCoupons();
-    console.log(this.coupons);
+    this.coupons.set(await this.couponSvc.getCoupons());
+    console.log(this.coupons());
   }
 }
