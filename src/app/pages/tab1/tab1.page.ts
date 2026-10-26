@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular';
+import { Component, inject } from '@angular/core';
+import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular';
+import { Coupon } from '../../models/coupon.model';
+import { CouponService } from '../../services/coupon';
 
 @Component({
   selector: 'app-tab1',
@@ -8,5 +10,11 @@ import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular';
   imports: [IonHeader, IonToolbar, IonTitle, IonContent],
 })
 export class Tab1Page {
-  constructor() {}
+  couponSvc = inject(CouponService);
+  coupons: Coupon[] = [];
+
+  async ionViewWillEnter() {
+    this.coupons = await this.couponSvc.getCoupons();
+    console.log(this.coupons);
+  }
 }

@@ -33,7 +33,7 @@ O para generar los iconos:
 `ionic g page pages/mypage`
 
 # Generar servicio
-`ionic g s services/myservice`
+`ionic g s services/coupon`
 
 # Generar pipe
 `ionic g pipe pipes/GetStat`
