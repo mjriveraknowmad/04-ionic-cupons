@@ -18,7 +18,11 @@
   </ion-segment>
   <ion-segment-view>
     <ion-segment-content id="first">Contenido de Dulces</ion-segment-content>
-    <ion-segment-content id="second">Contenido de Bebidas</ion-segment-content>
+    <ion-segment-content id="second">
+      <pre>
+        {{ coupons | filterCouponCategory:'drinks' | json }}
+      </pre>
+    </ion-segment-content>
     <ion-segment-content id="third">Contenido de Carnes</ion-segment-content>
   </ion-segment-view>
 </ion-content>

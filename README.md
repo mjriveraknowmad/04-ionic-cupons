@@ -36,7 +36,7 @@ O para generar los iconos:
 `ionic g s services/coupon`
 
 # Generar pipe
-`ionic g pipe pipes/GetStat`
+`ionic g pipe pipes/filterCouponCategory`
 
 ## Generar iconos
 Se añadieron los scripts correspondientes en el package.json, y las imagenes en la carpeta resources
