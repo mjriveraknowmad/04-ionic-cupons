@@ -50,6 +50,10 @@ Más info sobre el script y las dimensiones necesarias de las imágenes: [https:
 
 `ionic capacitor build android` 
 
+# Añadir librería de QR
+https://www.npmjs.com/package/angularx-qrcode 
+`npm i angularx-qrcode`
+
 ## Más documentación
 https://ionic-docs-lq0if04rc-ionic1.vercel.app/docs/v7/intro/cli
 https://ionic-docs-lq0if04rc-ionic1.vercel.app/docs/v7/components
